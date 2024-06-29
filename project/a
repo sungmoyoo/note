@@ -1,0 +1,63 @@
+  let filteredRentalHomeList = rentalHomeList;
+  function getFilterData(){
+    let themes = [];
+    let checkboxes = document.querySelectorAll('input[name="theme"]:checked');
+    checkboxes.forEach(checkbox => {
+      themes.push(checkbox.value);
+    });
+    let minPrice = document.getElementById('minPrice').value;
+    let maxPrice = document.getElementById('maxPrice').value;
+
+    // 숙소List filter
+    filteredRentalHomeList = Object.values(rentalHomeList).filter(function(rentalHome){
+      if( themes != null ){ // theme를 선택했을때, 조건에 맞는 rentalHome return
+        return rentalHome.themes.some(theme => themes.includes(theme.themeName)) && rentalHome.price >= minPrice && rentalHome.price <= maxPrice;
+      }
+      if( themes == null ){ // theme를 선택 안했을때 해당 조건에 맞는 rentalHome return
+        return rentalHome.price >= minPrice && rentalHome.price <= maxPrice;
+      }
+    });
+
+    // 필터링된 숙소의 갯수 업데이트
+    updateButtonLabel( filteredRentalHomeList.length );
+
+    // 필터링된 숙소 리스트 업데이트
+    updateRentalHomeList(filteredRentalHomeList);
+
+    // 팝업 닫기
+    closeFilterPopup();
+  }
+
+
+// 숙소 목록 재할당
+ function updateRentalHomeList(newRentalHomeList){
+  let listContainer = $('.listing-container'); // 가장 바깥 html 태그의 class 아이디
+  listContainer.empty();
+
+  newRentalHomeList.forEach(function(rentalHome){ // html을 재할당된 숙소 목록으로 재작성
+    let listItem = $( '<div class="listing-item">' );
+    let sliderDiv = $( '<div class="listing-slider">' );
+
+      rentalHome.rentalHomePhotos.forEach(function(photos){
+      let image = $( '<img class="slide-image">' )
+      .attr( 'src', 'https://5ns6sjke2756.edge.naverncp.com/nBMc0TCJiv/rental_home/' + photos.uuidPhotoName + '?type=f&w=265&h=252&faceopt=false&ttype=jpg' )
+      .attr( 'alt', '숙소이미지' );
+      sliderDiv.append(image);
+    });
+    let imageLeftButton = $('<button class="slide-button prev-button"></button>');
+    let imageRightButton = $('<button class="slide-button next-button"></button>');
+    let nameSpan = $('<span>').text(rentalHome.name);
+    let priceSpan = $('<span>').text(rentalHome.price);
+
+    sliderDiv.append(imageLeftButton);
+    sliderDiv.append(imageRightButton);
+    sliderDiv.append(nameSpan);
+    sliderDiv.append(priceSpan);
+    listItem.append(sliderDiv);
+
+    listContainer.append(listItem); // html 작성한것 적용
+
+    // 사진 슬라이더 이벤트 재할당
+    bindSliderEvents(listItem);
+  });
+ }
