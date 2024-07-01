@@ -1,4 +1,4 @@
-# [Java] Stream API
+  # [Java] Stream API
 Stream API는 JDK8에서 함수형 인터페이스, 람다식과 함께 추가된 기능이다. 컬렉션, 배열 등의 데이터를 
 
 ## 사용하는 이유?
