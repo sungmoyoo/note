@@ -7,7 +7,7 @@ import org.springframework.core.annotation.Order;
 
 @Order(1)
 @WebFilter(urlPatterns = "/hello")
-public class MyFilter implements Filter {
+public class F1 implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
