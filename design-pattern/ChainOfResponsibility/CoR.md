@@ -7,7 +7,7 @@
 책임 연쇄 패턴은 요청을 보내는 쪽에서 그 요청을 처리하는 핸들러가 어떤 구체적인 타입인지 알 필요 없이 `Decoupling`된 상태로 요청을 처리하도록 보낼 수 있다.
 
 ## 구조
-<img src="ChainOfResponsibility.png">
+
 
 - Client
   - 요청을 보내는 객체
