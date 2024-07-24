@@ -1,6 +1,6 @@
 # NextJS 프로젝트 생성
 
-![img]{}
+![img](https://github.com/sungmoyoo/note/blob/main/weasel/img/startProject1.png?raw=true)
 
 ```
 npx create-next-app@latest
@@ -15,6 +15,8 @@ npx create-next-app@latest
 ### 2. nextjs 설치
 
 기본 터미널 또는 명령 프롬프트에서 프로젝트를 폴더를 생성할 경로에서 아까 확인한 설치 명령을 입력해준다.
+
+![img](https://github.com/sungmoyoo/note/blob/main/weasel/img/startProject2.png?raw=true)
 
 위 코드를 실행하면 생성 옵션을 물어보는데, 상황에 맞게 사용할 옵션을 선택한다.
 
@@ -37,7 +39,7 @@ NextJS 프로젝트가 성공적으로 실행되었다면 다음과 같이 프�
 터미널/명령 프롬프트에서 프로젝트 경로로 이동한 후 `npm run dev`를 입력하여 개발 서버를 바로 실행할 수 있다.  
 실제 배포 서버를 실행 시키고 싶다면 빌드 후 `npm run start` 명령으로 실행 시킬 수 있다.
 
-[사진3]
+![img](https://github.com/sungmoyoo/note/blob/main/weasel/img/startProject3.png?raw=true)
 
 터미널에 나와있는 주소로 접속했을 때 다음과 같이 NextJS에서 반겨준다면 성공적으로 프로젝트를 생성한 것이다.
 
